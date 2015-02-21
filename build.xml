@@ -12,6 +12,8 @@
 **
 -->
 <project name="Mapillary" default="dist" basedir=".">
+    <property name="_josm.baseDir" value="../josm" />
+    <property name="_josm.pluginsDir" value="${_josm.baseDir}/plugins" />
 
     <!-- enter the SVN commit message -->
     <property name="commit.message" value="Commit message"/>
@@ -32,11 +34,11 @@
     <!--<property name="plugin.early" value="..."/>-->
     <!--<property name="plugin.requires" value="..."/>-->
     <!--<property name="plugin.stage" value="..."/>-->
-    
-	<property name="josm" location="../../core/dist/josm-latest.jar"/>
-	<property name="plugin.dist.dir" value="dist"/>
-	
+
+    <property name="josm" location="${_josm.baseDir}/core/dist/josm-custom.jar"/>
+    <property name="plugin.dist.dir" value="${_josm.baseDir}/dist"/>
+
     <!-- ** include targets that all plugins have in common ** -->
-    <import file="plugins/build-common.xml"/>
+    <import file="${_josm.pluginsDir}/build-common.xml"/>
   
 </project>
